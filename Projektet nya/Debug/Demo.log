@@ -1,0 +1,8 @@
+﻿  compilation object save succeeded; see C:\Users\test\Downloads\3D\Projektet\Debug\PSLight.cso
+  main.cpp
+c:\users\test\downloads\3d\projektet\main.cpp(21): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\test\downloads\3d\projektet\main.cpp(277): warning C4316: 'Camera': object allocated on the heap may not be aligned 16
+c:\users\test\downloads\3d\projektet\main.cpp(287): warning C4316: 'GeometryPass': object allocated on the heap may not be aligned 16
+c:\users\test\downloads\3d\projektet\main.cpp(294): warning C4316: 'LightPass': object allocated on the heap may not be aligned 16
+c:\users\test\downloads\3d\projektet\main.cpp(122): warning C4715: 'CreateDepthStencil': not all control paths return a value
+  Demo.vcxproj -> C:\Users\test\Downloads\3D\Projektet\Debug\Demo.exe
