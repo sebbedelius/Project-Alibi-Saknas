@@ -22,6 +22,10 @@ struct PSL_LIGHT_BUFFER
 	DirectX::XMVECTOR theLightRange;
 };
 
+struct PSL_CAMERA_BUFFER
+{
+	DirectX::XMVECTOR camPos;
+};
 
 class LightPass
 {
@@ -29,6 +33,7 @@ private:
 
 	VSL_CONSTANT_BUFFER VSLConstData;
 	PSL_LIGHT_BUFFER PSLConstData;
+	PSL_CAMERA_BUFFER PSLConstCamData;
 	ID3D11Device * gDevice;
 	ID3D11DeviceContext* gDeviceContext;
 	ID3D11RenderTargetView* gRenderTargetView;

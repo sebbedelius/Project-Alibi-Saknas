@@ -13,9 +13,9 @@ void LightPass::createMatrices()
 
 void LightPass::createLights()
 {
-	DirectX::XMVECTOR lightPos = DirectX::XMVectorSet(2, 3, -3, 1);
-	DirectX::XMVECTOR lightColor = DirectX::XMVectorSet(1, 0, 0, 1);
-	DirectX::XMVECTOR lightDirection = DirectX::XMVectorSet(0, 0, 0, 1);
+	DirectX::XMVECTOR lightPos = DirectX::XMVectorSet(1, 1, -1, 1);
+	DirectX::XMVECTOR lightColor = DirectX::XMVectorSet(-1, -1, 1, 1);
+	DirectX::XMVECTOR lightDirection = DirectX::XMVectorSet(-1, -3, -3, 1);
 	DirectX::XMVECTOR spotlightAngles = DirectX::XMVectorSet(1, 1, 1, 1);
 	DirectX::XMVECTOR lightRange = DirectX::XMVectorSet(5, 5, 5, 5);
 
@@ -236,6 +236,7 @@ LightPass::LightPass(ID3D11Device* inGDevice, ID3D11DeviceContext* inGDeviceCont
 	}
 	this->camera = inCamera;	
 	
+	this->PSLConstCamData = { this->camera->getCamPos() };
 	this->createMatrices();
 	this->createLights();
 	this->createConstantBuffer();

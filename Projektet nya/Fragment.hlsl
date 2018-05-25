@@ -1,7 +1,7 @@
 //Sebastian Tillgren
 
 Texture2D txDiffuse : register(t0);
-SamplerState sampAni :register(s0)
+SamplerState sampAni : register(s0)
 {
 	Filter = MIN_MAG_MIP_LINEAR;
 	AddressU = Wrap;
@@ -40,7 +40,7 @@ PS_OUT PS_main(GS_OUT input)
 	
 	//return float4(input.Color, 1.0f);
 
-	float3 diffuseAlbedo = txDiffuse.Sample(sampAni, input.Color).xyz;
+	float3 diffuseAlbedo = txDiffuse.Sample(sampAni, input.Color).rgb; //kan vara fel här någonstans
 
 	float3 normal = normalize(input.FaceNormal.xyz);
 

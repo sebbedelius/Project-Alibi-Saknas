@@ -44,9 +44,9 @@ float3 CalcLighting(in float3 position, in float3 normal, in float3 diffuseAlbed
 
 	lightVector = lightVector / distance;
 
-	float3 lightVector2 = LightDirection;
+	/*float3 lightVector2 = LightDirection;
 	float rho = dot(-lightVector, lightVector2);
-	attenuation *= saturate((rho - SpotlightAngles.y) / (SpotlightAngles.x - SpotlightAngles.y));
+	attenuation *= saturate((rho - SpotlightAngles.y) / (SpotlightAngles.x - SpotlightAngles.y));*/
 
 	float nDotL = saturate(dot(normal, lightVector));
 	float3 diffuse = nDotL * LightColor * diffuseAlbedo;
@@ -71,17 +71,17 @@ float4 PSL_main(in PSL_IN input) : SV_Target0
 	float3 specularAlbedo;
 	float specularPower;
 
-	int3 sampleIndices = int3 (input.Position.xy, 0);
+	/*int3 sampleIndices = int3 (input.Position.xy, 0);
 
-	normal = NormalTexture.Load(sampleIndices).xyz;
+	normal = NormalTexture.Load(sampleIndices).xyz;*/
 
-	//GetGBufferAttributes(input.Position.xy, normal, position,
-	//	diffuseAlbedo, specularAlbedo, specularPower);
+	GetGBufferAttributes(input.Position.xy, normal, position,
+		diffuseAlbedo, specularAlbedo, specularPower);
 
-	//float3 lighting = CalcLighting(position, normal, diffuseAlbedo,
-	//	specularAlbedo, specularPower);
+	float3 lighting = CalcLighting(position, normal, diffuseAlbedo,
+		specularAlbedo, specularPower);
 
-	//return float4(lighting, 1.0f);
+	return float4(lighting, 1.0f);
 	return float4(normal, 1.0f);
 		//float4(0, 1, 0, 1.f);
 }
